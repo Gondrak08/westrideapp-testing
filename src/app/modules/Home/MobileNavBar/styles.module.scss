@@ -1,0 +1,117 @@
+.nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  &__burger {
+    width: 30px;
+    height: 20px;
+
+    span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: $black;
+      opacity: 1;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+      &:nth-child(1) {
+        top: 0px;
+      }
+      &:nth-child(2) {
+        top: 10px;
+      }
+      &:nth-child(3) {
+        top: 20px;
+      }
+    }
+    &.show {
+      span {
+        &:nth-child(1) {
+          top: 10px;
+          transform: rotate(135deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          left: -20px;
+        }
+        &:nth-child(3) {
+          top: 10px;
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 30px;
+  &__overlay {
+    background: transparent;
+  }
+  &__item {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    &.active {
+      color: $primary-color;
+    }
+    &.blue {
+      color: $secondary-color;
+    }
+  }
+  &__socials {
+    margin-top: 40px;
+    display: flex;
+    gap: 24px;
+    svg {
+      cursor: pointer;
+      transition: all 0.3s;
+      &:not(.rect) {
+        path {
+          fill: $primary-color;
+        }
+      }
+      &.rect {
+        rect {
+          fill: $primary-color;
+        }
+        path {
+          fill: $primary-color;
+        }
+      }
+
+      &:hover {
+        &:not(.rect) {
+          path {
+            fill: lighten($primary-color, $amount: 20);
+          }
+        }
+        &.rect {
+          rect {
+            fill: lighten($primary-color, $amount: 20);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    top: 60px;
+  }
+}

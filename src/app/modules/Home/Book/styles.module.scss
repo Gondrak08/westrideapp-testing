@@ -1,0 +1,44 @@
+.book {
+  margin-bottom: 90px;
+
+  &__inner {
+    display: flex;
+    gap: 2.29vw;
+  }
+
+  &__map {
+    position: relative;
+    flex: 1;
+    background: $gray;
+  }
+
+  &__content {
+    flex: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+@media (min-width: 1920px) {
+  .book {
+    &__inner {
+      gap: 44px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .book {
+    margin-bottom: 80px;
+    &__inner {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    &__map {
+      height: 440px;
+      width: 100%;
+      flex: unset;
+    }
+  }
+}
